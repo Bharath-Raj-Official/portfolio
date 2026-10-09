@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parallax Effect</title>
+  <link rel="stylesheet" href="Home\style.css">
+  <script src="Library\html5shiv.js"></script>
+</head>
+<body>
+  <div class="content-wrapper">
+    <div class="scrollDist"></div>
+    <div class="svg-container">
+      <svg id="parallaxSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+        <image class="mountBg" href="Assets\bgMT.png" x="25" y="60" width="50" /> <!-- Source: https://www.freepik.com/free-psd/view-nature-mountain-landscape_269375096.htm#page=2&query=mountain%20transparent&position=17&from_view=keyword&track=ais_hybrid&uuid=c545c398-2e98-4724-946d-ed4ecfbbb339-->
+        <image class="mountMg" href="Assets\fgMT.png" x="50" y="60" width="50" /> <!-- Source: https://www.freepik.com/free-psd/view-nature-mountain-landscape_269375144.htm#query=mountain%20transparent&position=40&from_view=keyword&track=ais_hybrid&uuid=a4e1a8a6-455f-45e7-94c4-67601ec3bd88-->
+        <image class="mountFg" href="Assets\mgMT.png" x="0" y="60" width="50" /> <!-- Source: https://www.freepik.com/free-psd/view-nature-mountain-landscape_269375113.htm#page=3&query=mountain%20transparent&position=9&from_view=keyword&track=ais_hybrid&uuid=c545c398-2e98-4724-946d-ed4ecfbbb339-->
+        <image class="cloud1" href="Assets\cloud1.png" x="0" y="60" width="50" /> <!-- Source: https://pngtree.com/freepng/dreamy-white-cloud-scape-fluffy-isolation_15198379.html -->
+        <image class="cloud2" href="Assets\cloud1.png" x="30" y="60" width="50" /> <!-- Source: https://pngtree.com/freepng/dreamy-white-cloud-scape-fluffy-isolation_15198379.html -->
+        <image class="cloud3" href="Assets\cloud1.png" x="61" y="60" width="50" /> <!-- Source: https://pngtree.com/freepng/dreamy-white-cloud-scape-fluffy-isolation_15198379.html -->
+      </svg>
+    </div>
+    <div class="combined-container">
+      <div class="overlay-text">
+        <span id="text"></span>
+        <span id="second-text"></span>
+        <span id="cursor">|</span>
+      </div>
+      <div class="description">
+        <p id="description">I am an avid programmer with a wide range of interests and skills. My goal is to create innovative solutions that make a positive impact. Feel free to explore my portfolio, and let's connect if you're interested in collaborating or learning more about my work. </p>
+      </div>
+    </div>
+    <div class="blank-space">
+      <img id="description-image" src="Assets\mypic.jpg" alt="Description Image" width="200" height="300">
+      <button class="button-24" id="learn-more" role="button">Learn More</button>
+    </div>
+  </div>
+
+  <div id="popup" class="popup hidden">
+    <div class="popup-content">
+      <button class="button-24" role="button" onclick="window.location.href='./About Me/about-me.html'">About Me</button>
+      <button class="button-24" role="button" onclick="window.location.href='./Experience/experience.html'">Experience</button>
+      <button class="button-24" role="button" onclick="window.location.href='./Projects/projects.html'">Projects</button>
+      <button class="button-24" role="button" onclick="window.location.href='./Contact Me/contact.html'">Contact Me</button>
+    </div>
+  </div>
+  <script src="Home\script.js"></script>
+</body>
+</html>

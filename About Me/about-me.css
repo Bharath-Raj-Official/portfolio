@@ -1,0 +1,277 @@
+/* Apply to both body and html elements */
+body, html {
+  height: 160vh; /* Set height to 160% of the viewport height to allow scrolling */
+  background-image: linear-gradient( /* Apply a gradient background */
+    to bottom, 
+    #FFE5B4, 
+    #f6c492 
+  );
+}
+
+/* Styles for the navigation bar */
+.navbar {
+  position: fixed; /* Fix the navbar at the top of the page */
+  top: 0; /* Align with the top of the viewport */
+  left: 0; /* Align with the left edge of the viewport */
+  width: 100%; /* Make the navbar span the entire width of the page */
+  background-color: rgba(255, 255, 255, 0); /* Set a transparent white background */
+  backdrop-filter: blur(10px); /* Apply a blur effect to the background behind the navbar */
+  display: grid; /* Use CSS Grid to layout navbar items */
+  grid-template-columns: repeat(5, 1fr); /* Divide the navbar into 5 equal columns */
+  grid-gap: 20px; /* Space between grid items */
+  padding: 20px; /* Padding inside the navbar */
+  z-index: 1; /* Ensure the navbar stays on top of other elements */
+}
+
+/* Style for the links in the navbar */
+.nav-link {
+  text-decoration: none; /* Remove underline from links */
+  color: #333; /* Set text color to dark gray */
+  font-weight: bold; /* Make the text bold */
+}
+
+/* Style for the hover state of navbar links */
+.nav-link:hover {
+  color: #FF4742; /* Change text color to bright red when hovered */
+}
+
+/* Style for the hamburger menu icon (for mobile navigation) */
+.hamburger-menu {
+  display: none; /* Hide the hamburger menu by default */
+  cursor: pointer; /* Change cursor to pointer when hovering */
+  position: fixed; /* Fix the hamburger menu in a specific position */
+  top: 20px; /* Position it 20px from the top of the viewport */
+  right: 20px; /* Position it 20px from the right of the viewport */
+  z-index: 1001; /* Ensure it appears above most other elements */
+}
+
+/* Style for each bar in the hamburger menu */
+.bar {
+  width: 25px; /* Set the width of each bar */
+  height: 3px; /* Set the height of each bar */
+  background-color: #333; /* Set the bar color to dark gray */
+  margin: 5px 0; /* Space between the bars */
+  transition: 0.4s; /* Smooth transition for transformations */
+}
+
+/* Style for the first bar when the menu is active */
+.hamburger-menu.active .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px); /* Rotate and move the bar */
+}
+
+/* Style for the second bar when the menu is active */
+.hamburger-menu.active .bar:nth-child(2) {
+  opacity: 0; /* Hide the second bar */
+}
+
+/* Style for the third bar when the menu is active */
+.hamburger-menu.active .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px); /* Rotate and move the bar */
+}
+
+/* Responsive styles for screens with a width of 768px or less */
+@media (max-width: 768px) {
+  /* Adjust body and html height for smaller screens */
+  body, html {
+    height: 180vh; /* Increase the height for more scrolling space */
+  }
+
+  /* Adjust navbar layout for smaller screens */
+  .navbar {
+    display: flex; /* Switch from grid to flexbox layout */
+    flex-direction: column; /* Stack navbar items vertically */
+    align-items: center; /* Center the items horizontally */
+    transform: translateY(-100%); /* Initially hide the navbar by moving it above the viewport */
+    background-color: rgba(255, 255, 255, 0); /* Keep background color the same */
+  }
+
+  /* Show the navbar when active */
+  .navbar.active {
+    transform: translateY(0); /* Slide the navbar into view */
+  }
+
+  /* Show the hamburger menu icon on smaller screens */
+  .hamburger-menu {
+    display: block; /* Make the hamburger menu visible */
+  }
+
+  /* Adjust margin for navbar links on smaller screens */
+  .nav-link {
+    margin: 10px 0; /* Add vertical space between links */
+  }
+}
+
+/* Styles for the introduction section */
+.introduction {
+  position: absolute; /* Position it absolutely relative to the nearest positioned ancestor */
+  top: 0vh; /* Align with the top of the viewport */
+  left: 0vw; /* Align with the left of the viewport */
+  width: 94vw; /* Set the width to 94% of the viewport width */
+}
+
+/* Apply a blurred background effect behind the introduction section */
+.introduction::before {
+  content: ""; /* Empty content to create a pseudo-element */
+  position: absolute; /* Position it absolutely within the introduction section */
+  top: 0px; /* Align with the top of the section */
+  left: 0px; /* Align with the left of the section */
+  width: 100%; /* Make it cover the entire width of the section */
+  height: 100%; /* Make it cover the entire height of the section */
+  opacity: 1; /* Fully opaque */
+  filter: blur(10px); /* Apply a blur effect */
+  z-index: -1; /* Place it behind the content of the section */
+}
+
+/* Styles for the heading and paragraph within the introduction section */
+.introduction h2, p {
+  position: relative; /* Position relative to its normal position */
+  top: 10vh; /* Move it 10vh down from the top of its normal position */
+  left: 3vw; /* Move it 3vw in from the left */
+  right: 3vw; /* Move it 3vw in from the right */
+  color: rgb(86, 85, 85); /* Set the text color to a dark gray */
+}
+
+/* Styles for the timeline container */
+.timeline-container {
+  position: absolute; /* Position it absolutely within its container */
+  top: 27vh; /* Position it 27vh down from the top of the viewport */
+  left: 3vw; /* Position it 3vw in from the left of the viewport */
+  right: 3vw; /* Position it 3vw in from the right of the viewport */
+  width: auto; /* Let the container width adjust based on its content */
+  height: auto; /* Let the container height adjust based on its content */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Arrange children vertically */
+  align-items: flex-start; /* Align children to the start of the container */
+  border-radius: 20px; /* Round the corners of the container */
+  border: 10px solid; /* Add a solid border */
+  filter: drop-shadow(-1px 0px 6px #000000); /* Apply a subtle drop shadow */
+  background-color: white; /* Set background color to white */
+  overflow-y: hidden; /* Hide content that overflows vertically */
+  padding: 20px; /* Add padding inside the container */
+}
+
+/* Styles for each item within the timeline */
+.timeline-item {
+  width: 100%; /* Make each timeline item take the full width of the container */
+  margin-bottom: 20px; /* Add space below each item */
+}
+
+/* Styles for the chat header within the timeline container */
+.chat-header {
+  position: absolute; /* Position it absolutely within the timeline container */
+  top: 0; /* Align with the top of the container */
+  left: 0; /* Align with the left of the container */
+  width: 100%; /* Make it span the entire width of the container */
+  height: 6%; /* Set the height to 6% of the container */
+  background-color: #d5d5d5; /* Set a light gray background color */
+  border-top-left-radius: 10px; /* Round the top-left corner */
+  border-top-right-radius: 10px; /* Round the top-right corner */
+}
+
+/* Center the heading within the chat header */
+.chat-header h5 {
+  position: absolute; /* Position it absolutely within the header */
+  top: 50%; /* Center it vertically */
+  left: 50%; /* Center it horizontally */
+  transform: translate(-50%, -50%); /* Adjust position to ensure it's centered */
+  text-align: center; /* Center the text */
+}
+
+/* Styles for the back button within the chat header */
+.backbutton {
+  position: absolute; /* Position it absolutely within the header */
+  top: 50%; /* Center it vertically */
+  left: 20px; /* Position it 20px from the left */
+  transform: translateY(-50%); /* Center it vertically */
+  width: 20px; /* Set a specific width */
+  height: 20px; /* Set a specific height */
+}
+
+/* Styles for the FaceTime button within the chat header */
+.facetime {
+  position: absolute; /* Position it absolutely within the header */
+  top: 50%; /* Center it vertically */
+  right: 20px; /* Position it 20px from the right */
+  transform: translateY(-50%); /* Center it vertically */
+  width: 30px; /* Set a specific width */
+  height: 30px; /* Set a specific height */
+}
+
+/* More styles for each item within the timeline */
+.timeline-item {
+  width: 100%; /* Ensure each item takes full width */
+  margin-bottom: 100px; /* Add larger space below each item */
+  display: flex; /* Use flexbox for layout */
+  justify-content: flex-start; /* Align items to the start */
+}
+
+/* Styles for chat bubbles within the timeline items */
+.chat-bubble {
+  position: relative; /* Position it relative to its normal position */
+  top: 10vh; /* Move it 10vh down from the top of its normal position */
+  background-color: #007AFF; /* Set the background color to a blue shade */
+  border-radius: 10px; /* Round the corners of the chat bubble */
+  padding: 15px; /* Add padding inside the chat bubble */
+  width: auto; /* Let the width adjust based on content */
+  max-width: 70%; /* Limit the maximum width to 70% of the container */
+  margin: 10px 0; /* Add vertical margin */
+  color: #FFFFFF; /* Set the text color to white */
+  font-size: 16px; /* Set font size */
+  font-family: -apple-system, sans-serif; /* Use a system font */
+  display: inline-block; /* Display as an inline block element */
+  flex-direction: column; /* Stack children vertically */
+  word-wrap: break-word; /* Break long words to avoid overflow */
+  overflow-wrap: break-word; /* Alternative word-breaking for broader browser support */
+  opacity: 0; /* Initially hide the chat bubble */
+  transform: translateY(20px); /* Move it down by 20px */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for visibility */
+}
+
+/* Visible state for chat bubbles */
+.chat-bubble.visible {
+  opacity: 1; /* Make the chat bubble visible */
+  transform: translateY(0); /* Move it back to its original position */
+}
+
+/* Styles for the heading (h3) and paragraph (p) within chat bubbles */
+.chat-bubble h3, 
+.chat-bubble p {
+  margin: 0; /* Remove margin */
+  padding: 0; /* Remove padding */
+  z-index: 1; /* Ensure text is above other elements */
+  max-width: 100%; /* Ensure text doesn't overflow */
+  color: white; /* Set text color to white */
+}
+
+/* Additional spacing below headings within chat bubbles */
+.chat-bubble h3 {
+  margin-bottom: 5px; /* Add space below the heading */
+}
+
+/* Reset position of paragraphs within chat bubbles */
+.chat-bubble p {
+  top: 0vh; /* Reset top position */
+  left: 0; /* Reset left position */
+}
+
+/* Triangle pointer for chat bubbles pointing to the left */
+.chat-bubble::before {
+  content: ""; /* Empty content to create a pseudo-element */
+  position: absolute; /* Position it absolutely within the bubble */
+  top: 50%; /* Align it vertically at the center */
+  left: -10px; /* Position it slightly outside the bubble */
+  transform: translateY(-50%); /* Center it vertically */
+  border: 10px solid transparent; /* Create a triangle using borders */
+  border-right-color: #007AFF; /* Color the right side to match the bubble */
+}
+
+/* Additional triangle pointer at the bottom of chat bubbles */
+.chat-bubble::after {
+  content: ""; /* Empty content to create a pseudo-element */
+  position: absolute; /* Position it absolutely within the bubble */
+  bottom: -10px; /* Position it slightly outside the bottom */
+  left: 10px; /* Position it inside the bubble */
+  border: 10px solid transparent; /* Create a triangle using borders */
+  border-top-color: #007AFF; /* Color the top side to match the bubble */
+  border-left-color: #007AFF; /* Color the left side to match the bubble */
+}

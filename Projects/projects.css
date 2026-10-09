@@ -1,0 +1,211 @@
+html, body {
+  height: auto;
+  background-image: linear-gradient(to bottom, #ffe5b4, #f6c492);
+}
+
+/* Hide horizontal overflow for the body element */
+body {
+  overflow-x: hidden;
+}
+
+/* Style the navbar */
+.navbar {
+  position: fixed; /* Fix the navbar to the top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  background-color: rgba(255, 255, 255, 0); /* Translucent background */
+  backdrop-filter: blur(10px); /* Blur the background */
+  display: grid; /* Use grid layout */
+  grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
+  grid-gap: 20px; /* Gap between columns */
+  padding: 20px; /* Padding */
+  z-index: 1; /* Ensure navbar stays on top */
+}
+
+/* Style the navigation links */
+.nav-link {
+  text-decoration: none; /* Remove underline */
+  color: #333; /* Text color */
+  font-weight: bold; /* Bold font */
+}
+
+/* Add active state to current page link */
+.nav-link:hover {
+  color: #FF4742; /* Change text color on hover */
+}
+
+/* Style the hamburger menu */
+.hamburger-menu {
+  display: none; /* Hide by default */
+  cursor: pointer; /* Change cursor shape */
+  position: fixed; /* Fix to the top right corner */
+  top: 20px;
+  right: 20px;
+  z-index: 1001; /* Ensure it stays on top */
+}
+
+/* Style the hamburger menu bars */
+.bar {
+  width: 25px; /* Width */
+  height: 3px; /* Height */
+  background-color: #333; /* Background color */
+  margin: 5px 0; /* Margin */
+  transition: 0.4s; /* Transition effect */
+}
+
+/* Hamburger menu animation */
+.hamburger-menu.active .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px); /* Rotate and translate */
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+  opacity: 0; /* Hide the middle bar */
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px); /* Rotate and translate */
+}
+
+/* Style the phone container */
+#phones-container {
+  display: flex; /* Use flex layout */
+  flex-direction: column; /* Column direction */
+  align-items: center; /* Center align */
+  gap: 50px; /* Gap between phones */
+  padding-top: 20vh; /* Padding to account for the fixed navbar */
+}
+
+/* Style the phone container */
+.phone-container {
+  display: flex; /* Use flex layout */
+  flex-direction: column; /* Column direction */
+  align-items: center; /* Center align */
+  gap: 10px; /* Gap between elements */
+}
+
+/* Style the phone title and description */
+.phone-container h2,
+.phone-container p {
+  text-align: justify; /* Justify text */
+  padding: 5px; /* Padding */
+  width: 250px; /* Width */
+}
+
+/* Style the phone */
+.phone {
+  border-radius: 20px; /* Rounded corners */
+  overflow: hidden; /* Hide overflow */
+  width: 250px; /* Width */
+  height: 500px; /* Height */
+  border: 5px solid #ffffff; /* Border */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6); /* Shadow */
+  margin-bottom: 20px; /* Margin bottom */
+  position: relative; /* Relative position */
+}
+
+/* Style the horizontal phone */
+.phone.horizontal {
+  width: 600px; /* Default width */
+  height: 300px; /* Default height */
+  max-width: 90vw; /* Maximum width */
+  max-height: 45vw; /* Maximum height */
+}
+
+/* Style the phone image and canvas */
+.phone img,
+.phone canvas {
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  object-fit: cover; /* Cover the entire area */
+}
+
+/* Style the horizontal phone title and description */
+.phone.horizontal h2 {
+  bottom: auto; /* Remove bottom positioning */
+  top: 10px; /* Top positioning */
+}
+
+.phone.horizontal p {
+  bottom: 10px; /* Bottom positioning */
+}
+
+/* Style the title container */
+.title-container {
+  display: flex; /* Use flex layout */
+  align-items: center; /* Center align */
+}
+
+/* Style the count container */
+.count-container {
+  margin-left: 10px; /* Margin left */
+  position: relative; /* Relative */
+}
+
+/* Style the count container span */
+.count-container span {
+  font-weight: bold; /* Bold font */
+  font-size: 18px; /* Font size */
+}
+
+/* Style the vertical line */
+.vertical-line {
+  position: absolute; /* Absolute position */
+  right: 4vw; /* Right positioning */
+  top: 0; /* Top positioning */
+  bottom: 0; /* Bottom positioning */
+  border-left: 1px solid #000000; /* Left border */
+  height: 100%; /* Full height */
+}
+
+/* Style the phone divider */
+.phone-divider {
+  width: 60vw; /* Width */
+  border: none; /* No border */
+  border-top: 1px solid #000000; /* Top border */
+  margin: 20px auto; /* Margin */
+}
+
+/* Media query for max-width 768px */
+@media (max-width: 768px) {
+  /* Style the navbar for small screens */
+  .navbar {
+    display: flex; /* Use flex layout */
+    flex-direction: column; /* Column direction */
+    align-items: center; /* Center align */
+    transform: translateY(-100%); /* Hide the navbar */
+    background-color: rgba(255, 255, 255, 0); /* Translucent background */
+  }
+
+  /* Style the active navbar for small screens */
+  .navbar.active {
+    transform: translateY(0); /* Show the navbar */
+  }
+
+  /* Show the hamburger menu for small screens */
+  .hamburger-menu {
+    display: block; /* Show the hamburger menu */
+  }
+
+  /* Style the navigation links for small screens */
+  .nav-link {
+    margin: 10px 0; /* Margin */
+  }
+
+  /* Style the phone container for small screens */
+  .phone-container h2,
+  .phone-container p {
+    width: 90%; /* Width */
+  }
+
+  /* Style the phone for small screens */
+  .phone {
+    max-width: 90%; /* Maximum width */
+  }
+
+  /* Style the horizontal phone for small screens */
+  .phone.horizontal {
+    width: 90vw; /* Width */
+    height: 45vw; /* Height */
+  }
+}
