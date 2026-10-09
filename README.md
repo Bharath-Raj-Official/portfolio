@@ -6,12 +6,12 @@ Recruiters need a clear route from a project interface to the engineering decisi
 
 ## Demo
 
-Local preview works with the setup below. GitHub Pages publication is pending destination authentication; a live URL will be added after verification.
+[Open the live demo](https://bharath-raj-official.github.io/portfolio/). Local setup is also available below.
 
 ## What it does
 
 - Immediate name, software engineering focus and project navigation.
-- Eight project entries and individual technical case notes.
+- Seven project entries and individual technical case notes.
 - Actual interface captures from the local finished applications.
 - Responsive warm-neutral typography, visible focus, skip link and reduced-motion support.
 - Verified project copy and GitHub link, without fictional testimonials, proficiency percentages or simulated contact success.
@@ -26,7 +26,7 @@ Open http://127.0.0.1:8000/ in a modern browser. Run the command inside this rep
 
 ## Controls
 
-Choose a project to read its engineering notes, or follow the source/demo links. On localhost, browser demo links open the sibling projects in this workspace. Public demo URLs are provisional until repositories are deployed and verified.
+Choose a project to read its engineering notes, or follow the source/demo links. On localhost, browser demo links open the sibling projects in this workspace. Public browser demo URLs have been deployed and checked.
 
 ## Architecture and decisions
 
@@ -34,7 +34,7 @@ Choose a project to read its engineering notes, or follow the source/demo links.
 
 ## Limitations
 
-Event Booking’s refresh is pending a sanitized archive and is labeled accordingly. Education, email, LinkedIn and CV are intentionally absent until verified. Repository/demo links cannot be called working until publication is completed.
+Event Booking’s refresh is pending a sanitized archive and is labeled accordingly. Education, email, LinkedIn and CV are intentionally absent until verified. DJ Mixer is excluded from public presentation while inherited starter-code redistribution permissions are unresolved.
 
 ## Validation
 
