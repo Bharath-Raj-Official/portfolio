@@ -1,8 +1,7 @@
-node_modules/
 .env
 .env.*
 !.env.example
-*.db
-*.sqlite*
-__pycache__/
+!.env.sample
+node_modules/
 .DS_Store
+Thumbs.db

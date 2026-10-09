@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="experience.css">
+    <script src="../Library/html5shiv.js"></script>
+</head>
+<body>
+    <header>
+        <div class="hamburger-menu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <nav class="navbar">
+          <a href="../index.html" class="nav-link">Home</a>
+          <a href="../About Me/about-me.html" class="nav-link">About Me</a>
+          <a href="../Experience/experience.html" class="nav-link">Experience</a>
+          <a href="../Projects/projects.html" class="nav-link">Projects</a>
+          <a href="../Contact Me/contact.html" class="nav-link">Contact Me</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Programming Language Proficiency</h1>
+        <div class="skills">
+            <div class="skill">
+                <span class="skill-name">JavaScript</span>
+                <div class="skill-bar">
+                    <div class="skill-per" per="70"></div>
+                </div>
+                <span class="skill-percentage">70%</span>
+            </div>
+            <div class="skill">
+                <span class="skill-name">Python</span>
+                <div class="skill-bar">
+                    <div class="skill-per" per="95"></div>
+                </div>
+                <span class="skill-percentage">95%</span>
+            </div>
+            <div class="skill">
+                <span class="skill-name">Java</span>
+                <div class="skill-bar">
+                    <div class="skill-per" per="60"></div>
+                </div>
+                <span class="skill-percentage">60%</span>
+            </div>
+            <div class="skill">
+                <span class="skill-name">HTML/CSS</span>
+                <div class="skill-bar">
+                    <div class="skill-per" per="70"></div>
+                </div>
+                <span class="skill-percentage">70%</span>
+            </div>
+            <div class="skill">
+                <span class="skill-name">React</span>
+                <div class="skill-bar">
+                    <div class="skill-per" per="75"></div>
+                </div>
+                <span class="skill-percentage">75%</span>
+            </div>
+            <div class="skill">
+                <span class="skill-name">Haskell</span>
+                <div class="skill-bar">
+                    <div class="skill-per" per="95"></div>
+                </div>
+                <span class="skill-percentage">95%</span>
+            </div>
+        </div>
+    </div>
+    <div class="framework-container">
+        <h1>Framework Proficiency</h1>
+        <script id="framework-template" type="text/x-handlebars-template">
+            {{#frameworks}}
+            <div class="framework-square" data-name="{{name}}" data-percentage="{{percentage}}" data-description="{{description}}">
+            <img src="{{logo}}" alt="{{name}}">
+            </div>
+            {{/frameworks}}
+        </script>
+        <div class="popup" id="popup">
+            <div class="popup-content">
+            <img src="" alt="" class="popup-logo">
+            <div class="popup-info">
+                <span class="popup-name">Name:</span>
+                <span class="popup-name-value"></span>
+                <span class="popup-proficiency">Proficiency:</span>
+                <span class="popup-proficiency-value"></span>
+            </div>
+            <p class="popup-description"></p>
+            </div>
+        </div>
+    </div>
+    <script src="../Library/handlebars.min.js"></script> <!-- source: https://handlebarsjs.com/installation/#downloading-handlebars-->
+    <script src="experience.js"></script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+/* CSS variables for reusable values */
+:root {
+  --primary-color: #FF4742;
+  --secondary-color: #FFFFFF;
+  --font-family: monospace;
+  --transition-opacity: opacity 0.5s;
+  --transition-transform: transform 0.1s ease-out;
+}
+
+/* General body and HTML styling */
+body, html {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  width: 100%; /* Set width to full viewport width */
+  height: auto; /* Auto-adjust height based on content */
+  background: #ddd; /* Set a light grey background color */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Wrapper for the main content while scrollDist defines scrollable distance area */
+.content-wrapper, .scrollDist {
+  width: 100vw; /* Full viewport width */
+  height: 100%; /* Will be dynamically set in JavaScript */
+  position: absolute; /* Position absolutely within its parent container */
+}
+
+/* SVG container with parallax scrolling effect */
+.svg-container, svg {
+  width: 100%; /* Full width */
+  height: auto; /* Auto-adjust height based on content */
+  max-width: 100vw; /* Full viewport width */
+  object-fit: contain; /* Contain the SVG within the defined width and height */
+}
+
+/* Container for SVG elements, with parallax scrolling effect */
+.svg-container {
+  height: 100vh; /* Full viewport height */
+  display: flex; /* Flexbox for alignment */
+  justify-content: center; /* Center the content horizontally */
+  align-items: flex-end; /* Align the content to the bottom */
+  overflow: hidden; /* Hide any overflow */
+  background: radial-gradient(circle at top, #fedb5c, #f3c2e1); /* Gradient background */
+  position: sticky; /* Sticks the element to the top of the viewport when scrolling */
+  top: 0; /* Stick to the top */
+  z-index: 1; /* Layer the SVG container above other elements */
+}
+
+/* Specific styling for the SVG element used in the parallax effect */
+#parallaxSVG {
+  max-height: 160vh; /* Maximum height is 160% of the viewport height */
+}
+
+.blank-space {
+  width: 100%; /* Full width */
+  height: 110vh; /* 110% of the viewport height */
+  background-color: var(--secondary-color); 
+  position: relative; /* Position relative to its normal position */
+  z-index: 2; /* Layer this section above the SVG container */
+  transform: translateY(0); /* Initial Y-axis translation is zero */
+}
+
+/* Classes for different elements involved in the parallax effect */
+.mountBg, .mountMg, .mountFg, .cloud1, .cloud2, .cloud3 {
+  transition: var(--transition-transform); /* Smooth transformation with ease-out effect */
+}
+
+.mountBg { transform-origin: top center; } /* Rotate/scale from the top center */
+.mountMg { transform-origin: top right; } /* Rotate/scale from the top right */
+.mountFg { transform-origin: top left; } /* Rotate/scale from the top left */
+
+/* Common styles for fixed overlay text elements */
+.overlay-text, #description, #description-image {
+  position: fixed; /* Fixed positioning relative to the viewport */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
+  z-index: 3; /* Layer above most other elements */
+  font-family: var(--font-family); /* Monospace font for a typewriter effect */
+}
+
+.overlay-text {
+  top: 20%; /* 20% down from the top of the viewport */
+  font-size: 20px; /* Responsive font size based on viewport width */
+  color: var(--secondary-color);
+  pointer-events: none; /* Allow clicks to pass through */
+  display: flex; /* Flexbox for gap between elements */
+  gap: 0.1em; /* Small gap between text elements */
+  text-align: center; /* Center align the text */
+}
+
+/* Styling for the main text within the overlay */
+#text, #second-text {
+  display: inline-block; /* Display text inline-block for spacing control */
+}
+
+/* Styling for secondary text that is initially invisible */
+#second-text {
+  color: black;
+  opacity: 0; /* Initially invisible */
+  transition: var(--transition-opacity); /* Smooth opacity transition */
+}
+
+/* Cursor element with a blinking animation */
+#cursor {
+  display: inline-block; /* Display inline-block */
+  color: black; /* Black color for the cursor */
+  animation: blink 1s step-start infinite; /* Blinking effect using keyframes */
+}
+
+/* Keyframes for the blinking cursor animation */
+@keyframes blink {
+  0% {
+    opacity: 1; /* Fully visible at start */
+  }
+  50% {
+    opacity: 0; /* Fully invisible at midpoint */
+  }
+  100% {
+    opacity: 1; /* Fully visible at end */
+  }
+}
+
+/* Description text that appears fixed on the screen */
+#description {
+  top: 32vh; /* 32% down from the top of the viewport */
+  left: 53vw;
+  font-size: 17px; /* Responsive font size based on viewport width */
+  color: black; /* Black text color */
+  opacity: 0; /* Initially invisible */
+  transition: opacity 2s ease-in-out; /* Smooth opacity transition over 2 seconds */
+}
+
+/* Styling for a fixed image associated with the description */
+#description-image {
+  width: 20vw; /* Responsive width based on viewport width */
+  height: 20vw; /* Responsive height based on viewport width */
+  top: 57vh; 
+}
+
+/* Styling for a button with hover effects */
+.button-24 {
+  background: var(--primary-color); /* Initial background color (red) */
+  border: 1px solid var(--primary-color); /* Border matches background color */
+  border-radius: 6px; /* Slightly rounded corners */
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px; /* Subtle shadow for depth */
+  color: var(--secondary-color);
+  cursor: pointer; /* Pointer cursor on hover */
+  display: inline-block; /* Display as an inline block */
+  font-family: nunito, roboto, proxima-nova, sans-serif; /* Sans-serif font family */
+  font-size: 16px; 
+  font-weight: 800; /* Bold font */
+  line-height: 16px;
+  min-height: 40px;
+  padding: 12px 14px; /* Padding inside the button */
+  text-align: center; /* Center the text inside the button */
+  text-rendering: geometricprecision; /* Render text with geometric precision */
+  user-select: none; /* No transformation to text */
+  -webkit-user-select: none; /* Disable text selection in WebKit browsers */
+  position: relative; /* Position relative for layering */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Button hover and active state styling */
+.button-24:hover, .button-24:active {
+  background-color: var(--secondary-color); /* White background on hover */
+  color: var(--primary-color); /* Red text color on hover */
+}
+
+.button-24:active {
+  opacity: 0.5; /* Slight transparency when active */
+}
+
+/* Positioning for the "Learn More" button */
+#learn-more {
+  position: absolute; /* Position absolutely within its parent */
+  left: 50%; /* Center horizontally */
+  bottom: 8vh; /* 8% up from the bottom of the viewport */
+  transform: translateX(-50%); /* Center horizontally */
+}
+
+/* Popup styling */
+.popup, .hidden {
+  position: fixed; /* Fixed positioning relative to the viewport */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  backdrop-filter: blur(10px); /* Apply a blur effect to the background */
+  display: flex; /* Flexbox for centering content */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  z-index: 5; /* Layer above most other elements */
+  transition: opacity 0.3s; /* Smooth opacity transition */
+}
+
+/* Hidden state for the popup, with visibility and opacity control */
+.hidden {
+  opacity: 0; /* Fully transparent */
+  visibility: hidden; /* Remove from view */
+}
+
+/* Styling for the content inside the popup */
+.popup-content {
+  padding: 20px; /* Padding around the content */
+  border-radius: 10px; /* Rounded corners */
+  text-align: center; /* Center the text */
+  display: grid; /* Grid layout for consistent spacing */
+  gap: 20px; /* 20px gap between grid items */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .overlay-text {
+    font-size: 4vw; /* Increase font size on smaller screens */
+    top: 20%; /* Adjust vertical positioning */
+  }
+
+  #description {
+    font-size: 2.5vw; /* Adjust description font size */
+    top: 29vh;
+  }
+
+  #text, #second-text {
+    font-size: 4vw; /* Ensure text scales on smaller screens */
+  }
+
+  #description-image {
+    width: 45vw; /* Adjust image width */
+    height: 35vh; /* Adjust image height */
+    top: 57vh;
+  }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+  .overlay-text {
+    font-size: 5vw; /* Further increase font size */
+    top: 20%; /* Further adjust vertical positioning */
+  }
+
+  #text, #second-text {
+    font-size: 5vw; /* Ensure text scales on very small screens */
+  }
+
+  #description {
+    font-size: 2.5vw; /* Adjust description font size */
+    top: 29vh;
+  }
+
+  #description-image {
+    width: 70vw; /* Adjust image width */
+    height: 35vh; /* Adjust image height */
+    top: 57vh;
+  }
+}

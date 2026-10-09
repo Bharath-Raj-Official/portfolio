@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="contact.css">
+    <script src="../Library/html5shiv.js"></script>
+</head>
+<body>
+    <header>
+        <div class="hamburger-menu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <nav class="navbar">
+          <a href="../index.html" class="nav-link">Home</a>
+          <a href="../About Me/about-me.html" class="nav-link">About Me</a>
+          <a href="../Experience/experience.html" class="nav-link">Experience</a>
+          <a href="../Projects/projects.html" class="nav-link">Projects</a>
+          <a href="../Contact Me/contact.html" class="nav-link">Contact Me</a>
+        </nav>
+    </header>
+
+    <div id="main-content">
+        <div id="container"></div>
+        <script id="box-template" type="text/x-handlebars-template">
+            <div class="box" style="background-color: {{backgroundColor}}">
+                {{text}}
+            </div>
+        </script>
+        <div id="review-container">
+            <div id="review-box">
+                <h2>Leave a review?</h2>
+                <textarea id="review-text" placeholder="Write your review here..."></textarea>
+                <button id="send-review">Send</button>
+            </div>
+        </div>
+    </div>
+    <div id="contact-section">
+        <div id="contact-box">
+            <div class="contact-form">
+                <h2>Contact me</h2>
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button id="send-contact">Send</button>
+            </div>
+            <div class="social-media">
+                <a href="https://www.instagram.com/"><img src="../Assets/instagram.png"></a> <!-- Source: https://pngtree.com/freepng/instagram-icon_8704817.html -->
+                <a href="https://www.linkedin.com"><img src="../Assets/linkedin.png"></a> <!-- Source: https://icons8.com/icons/set/linkedin -->
+                <a href="https://web.telegram.org/"><img src="../Assets/telegram.png"></a> <!-- Source: https://icons8.com/icons/set/telegram -->
+            </div>
+        </div>
+        <div id="success-message" style="display: none;">
+            <div id="green-tick">✓</div>
+            <p>Message sent!</p>
+        </div>
+    </div>
+
+    <script src="../Library/handlebars.min.js"></script> <!-- source: https://handlebarsjs.com/installation/#downloading-handlebars-->
+    <script src="contact.js"></script>
+</body>
+</html>

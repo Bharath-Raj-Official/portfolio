@@ -1,46 +1,30 @@
-# Bharath Raj — Portfolio
+# Future Me — original portfolio website
 
-Recruiters need a clear route from a project interface to the engineering decisions behind it. This static portfolio presents real work and states its current boundaries.
+[Open the restored website](https://bharath-raj-official.github.io/portfolio/).
 
-![Actual application interface](screenshot.png)
+This is the original coursework website imagining Bharath ten years in the future.
+Its future experience and project descriptions are fictional design content, not
+a current internship résumé. The supplied parallax landing page, navigation popup,
+About Me, Experience, Projects and Contact pages have been restored.
 
-## Demo
-
-[Open the live demo](https://bharath-raj-official.github.io/portfolio/). Local setup is also available below.
-
-## What it does
-
-- Immediate name, software engineering focus and project navigation.
-- Seven project entries and individual technical case notes.
-- Actual interface captures from the local finished applications.
-- Responsive warm-neutral typography, visible focus, skip link and reduced-motion support.
-- Verified project copy and GitHub link, without fictional testimonials, proficiency percentages or simulated contact success.
+![Restored original interface](screenshot.png)
 
 ## Run locally
 
 ```sh
-python -m http.server 8000 --bind 127.0.0.1
+python -m http.server 8000
 ```
 
-Open http://127.0.0.1:8000/ in a modern browser. Run the command inside this repository. Do not open `index.html` directly from disk: local datasets/model assets use HTTP. Python 3 is only a local static server; no application build is required.
+Open http://localhost:8000/. Scroll through the mountain landing page and choose
+Learn More to open the navigation popup. Each interior page includes navigation.
 
-## Controls
+## Restoration
 
-Choose a project to read its engineering notes, or follow the source/demo links. On localhost, browser demo links open the sibling projects in this workspace. Public browser demo URLs have been deployed and checked.
+Source comes only from the supplied Future-me-portfolio-website-main.zip. Relative
+HTML paths use web-compatible slashes. Student identifiers and original-account
+links are excluded, while existing third-party attribution and library comments
+are retained. Coursework report files are not published. The contact form is an
+original interface demonstration and does not send messages.
 
-## Architecture and decisions
-
-`index.html` contains content and case studies. `portfolio.css` defines the responsive visual system. `portfolio.js` changes demo URLs only in localhost previews. Project screenshots under `images/` are actual application captures; no generated screenshots are used.
-
-## Limitations
-
-Event Booking’s refresh is pending a sanitized archive and is labeled accordingly. Education, email, LinkedIn and CV are intentionally absent until verified. DJ Mixer is excluded from public presentation while inherited starter-code redistribution permissions are unresolved.
-
-## Validation
-
-Edge confirms eight entries and a phone layout without document overflow. Source screenshots were captured from the applications, including a JUCE component capture of the built Windows executable.
-
-## Third-party attribution
-
-DM Sans and DM Serif Display via Google Fonts. Screenshot credit belongs to the corresponding applications and their documented dependencies.
-
+The replaced internship portfolio is backed up locally outside this repository.
+The ZIP baseline is unchanged. DJ Mixer remains private and excluded from publishing.
