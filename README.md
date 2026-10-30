@@ -46,10 +46,11 @@ aliases. Query-string project views initialize in the browser. Unknown paths
 use the exported `404.html` and its existing interactive game.
 
 Local media, fonts and data are included. External project links open separate
-sites. Contact uses email links and browser clipboard features; résumé export
-uses the browser print dialog. Existing search-indexing settings are preserved.
+sites. Contact uses email links and browser clipboard features; the résumé page and PDF links use the supplied
+`Bharath_Raj_Rajamohan_Resume.pdf`. Open the PDF to use its native print controls. Existing search-indexing settings are preserved.
 
 The Doom game and its bundled binary are excluded from this upload edition.
 See `THIRD-PARTY-NOTICES.md` and the font license files for applicable notices.
 This portfolio contains project descriptions and selected presentation assets,
 not the underlying project repositories, models, datasets or private documents.
+The named résumé PDF is included with explicit publication authorization.

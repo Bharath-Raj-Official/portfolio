@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 
 const root=fileURLToPath(new URL('../out/',import.meta.url));
 const base='/portfolio',port=Number(process.env.PORT||3022);
-const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.webm':'video/webm','.woff2':'font/woff2','.ttf':'font/ttf','.bin':'application/octet-stream','.txt':'text/plain; charset=utf-8'};
+const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.webm':'video/webm','.woff2':'font/woff2','.ttf':'font/ttf','.bin':'application/octet-stream','.pdf':'application/pdf','.txt':'text/plain; charset=utf-8'};
 await stat(path.join(root,'index.html')).catch(()=>{throw Error('Build the static site first: npm run build');});
 const server=http.createServer(async(req,res)=>{
  try{

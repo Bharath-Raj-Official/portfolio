@@ -1,0 +1,5 @@
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.preview{display:block;width:100%;height:75vh;min-height:480px;border:1px solid var(--grid);background:#fff;color:#202020}
+.preview p{padding:24px;font:16px/1.6 'Segoe UI',Arial,sans-serif}
+.preview a{text-decoration:underline}
+@media(max-width:720px){.preview{height:65dvh;min-height:360px}.actions{gap:10px}}

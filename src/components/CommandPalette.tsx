@@ -12,7 +12,7 @@ export default function CommandPalette({go,action,theme,onClose,reduced}:{go:(pa
  const items=useMemo(()=>[
   ...projects.map(p=>({label:p.name,detail:'OPEN PROJECT',run:()=>go('/projet/'+p.slug)})),
   ...[{label:'cv_bharath.txt',detail:'READ RÉSUMÉ',path:'/resume'},{label:'contact.app',detail:'CONTACT METHODS',path:'/contact'},{label:'profil.sys',detail:'PROFILE · SKILLS · METHOD',path:'/profile'}].map(i=>({...i,run:()=>go(i.path)})),
-  ...([{label:'surprise me',detail:'A RANDOM PROJECT',a:'random'},{label:'print résumé',detail:'PDF',a:'print'},{label:'full screen',detail:'TOGGLE',a:'fullscreen'},{label:'CRT',detail:'ON / OFF',a:'crt'},{label:'mute / enable sound',detail:'AUDIO',a:'sound'}] as const).map(i=>({...i,run:()=>action(i.a)})),
+  ...([{label:'surprise me',detail:'A RANDOM PROJECT',a:'random'},{label:'open résumé PDF',detail:'PDF',a:'print'},{label:'full screen',detail:'TOGGLE',a:'fullscreen'},{label:'CRT',detail:'ON / OFF',a:'crt'},{label:'mute / enable sound',detail:'AUDIO',a:'sound'}] as const).map(i=>({...i,run:()=>action(i.a)})),
   ...Object.entries(themes).filter(([id])=>id==='phosphor').map(([id,t])=>({label:t.label.toLowerCase()+' theme',detail:'CHANGE THEME',run:()=>theme(id as ThemeId)})),
   ...([{label:'copy my email',detail:'CLIPBOARD',a:'copy-email'},{label:'copy page address',detail:'CLIPBOARD',a:'copy-link'},{label:'keyboard shortcuts',detail:'HELP',a:'keys'},{label:'about bharath-os',detail:'VERSION 0.1',a:'about'}] as const).map(i=>({...i,run:()=>action(i.a)})),
  ].filter(i=>(i.label+' '+i.detail).toLowerCase().includes(query.toLowerCase())),[query,go,action,theme]);

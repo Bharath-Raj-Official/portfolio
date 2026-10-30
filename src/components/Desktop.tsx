@@ -9,7 +9,7 @@ import {advanceStartup,POWER_ON_MS,type StartupPhase} from '@/lib/startup';
 import SystemDialog from './SystemDialog';
 import dialogStyles from './SystemDialog.module.css';
 import CommandPalette from './CommandPalette';
-import PrintResume from './PrintResume';
+import {resumePdfUrl} from '@/content/resume';
 import HomeContent from './HomeContent';
 import ProjectOverview from './ProjectOverview';
 import Resume from './Resume';
@@ -58,7 +58,7 @@ export default function Desktop({initialPath}:{initialPath:string}){
  const action=useCallback((a:Action)=>{
   if(a==='palette'){if(dialog!=='palette')playSound('tick');setDialog(d=>d==='palette'?null:'palette');return;}if(a==='keys'||a==='about'){playSound('tick');setDialog(a);return;}
   playSound('tick');if(a==='portrait-cycle'){setPrefs(p=>({...p,portraitCycle:p.portraitCycle===false}));return;}if(a==='sound'){setPrefs(p=>({...p,sound:!p.sound}));return;}if(a==='crt'){setPrefs(p=>({...p,crt:crtRequest(p.crt)}));if(powerBusy.current)return;if(reduced)return;powerBusy.current=true;playSound('tubeOff');setPower(styles.powerOff);powerTimer.current=window.setTimeout(()=>{setPower(styles.powerOn);playSound('tubeOn');powerTimer.current=window.setTimeout(()=>{setPower('');powerBusy.current=false;},780);},440);return;}
-  if(a==='print'){window.print();return;}if(a==='random'){go('/projet/'+projects[Math.floor(Math.random()*projects.length)].slug);return;}
+  if(a==='print'){window.open(resumePdfUrl,'_blank','noopener,noreferrer');return;}if(a==='random'){go('/projet/'+projects[Math.floor(Math.random()*projects.length)].slug);return;}
   if(a==='fullscreen'){if(document.fullscreenElement)void document.exitFullscreen().catch(()=>notify('Full screen is unavailable.'));else void document.documentElement.requestFullscreen().catch(()=>notify('Full screen is unavailable.'));return;}
   const text=a==='copy-email'?profile.email!:location.href;void navigator.clipboard?.writeText(text).then(()=>notify(a==='copy-email'?'Email copied.':'Page address copied.')).catch(()=>notify(text));
  },[go,notify,reduced,dialog]);
@@ -89,6 +89,5 @@ export default function Desktop({initialPath}:{initialPath:string}){
   <VisualBoundary><Crt theme={prefs.theme} reduced={reduced} enabled={prefs.crt}/></VisualBoundary>
   {startup==='terminal'&&<Boot sound={prefs.sound} toggleSound={()=>setPrefs(p=>({...p,sound:!p.sound}))} onEntered={finishTerminal} reduced={reduced}/>}
   {status&&<div className={styles.status} role="status">{status}</div>}
-  <PrintResume/>
  </div>;
 }
