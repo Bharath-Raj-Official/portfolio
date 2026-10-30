@@ -1,0 +1,91 @@
+{
+  "generator": "Numerical geometry exported from a local reference session, with every original portrait URL replaced by the corresponding user-supplied PNG. No original photographs or script bundles included.",
+  "reference": "https://eddy-naboulet.dev/",
+  "exporter": "scripts/export-portrait-geometry.js",
+  "format": "Little-endian uint32 version=1, uint32 count, count*(x,y,z,tone,length) float32",
+  "files": [
+    {
+      "file": "contact.strokes.bin",
+      "sha256": "1ac317b0ad6d8c301b2f9b58bc18db24b3bab52f58832dc8a02eb67de9a66bc3",
+      "source": "contact.png",
+      "sourceSHA256": "f25b9f397f5ca72f0c496b447f0b3cfd509f3c5e88b2a4814fe5393eb34736fd"
+    },
+    {
+      "file": "experience.strokes.bin",
+      "sha256": "bc93d1dcbd97c0e43b7ae1279912ac012709d1f566f3a0924b17db25a628379c",
+      "source": "experience.png",
+      "sourceSHA256": "e0e2e04c73d3b4e23c0bde576484fffd63bc518ec0767e04bc583fdf4474b97d"
+    },
+    {
+      "file": "profile.strokes.bin",
+      "sha256": "c56893f212dd3df2cad56e8097cb16a25852c77d923856dda4e70f301ed9796d",
+      "source": "about.png",
+      "sourceSHA256": "ff550aeb48e5d0a4588de6f99e69d59b7871eaf65cb7272b7371006e10a1dfb0"
+    },
+    {
+      "file": "projects.strokes.bin",
+      "sha256": "6583a845f3934b5369877832df24ce6d57ccf756c1030f482f4cc24284e1aea6",
+      "source": "projects.png",
+      "sourceSHA256": "84b3fa208662ca72edcab96589bf28e4f86f69ebc64b5e9163fbbd33bea694be"
+    },
+    {
+      "file": "welcome.strokes.bin",
+      "sha256": "0f7918035b6650f0475d8fdabed6026128eadb32406e62504ab98f37ec7815d9",
+      "source": "welcome.png",
+      "sourceSHA256": "469e7d901c28aa0b2cc16244abd04811f4d6c7c397f31f4f1bda20ca666cdf32"
+    }
+  ],
+  "additionalBaseline": {
+    "viewport": [
+      1920,
+      1080
+    ],
+    "uiZoom": 1.2,
+    "cols": 336,
+    "rows": 420,
+    "exporter": "scripts/export-portrait-geometry-1920.js",
+    "files": [
+      {
+        "file": "contact.336x420.strokes.bin",
+        "sha256": "becf9716b7bac744dda7eb5ddc176fa5c254e2ba41edaa2dc98d10f42aad5ffc",
+        "bytes": 2822408
+      },
+      {
+        "file": "experience.336x420.strokes.bin",
+        "sha256": "0ffe3dddb4829e95aa9924e1976e31b9305c132ad299e9c56fe7c2d6e612a9fd",
+        "bytes": 2822408
+      },
+      {
+        "file": "profile.336x420.strokes.bin",
+        "sha256": "0d0eb1631a176bb1cece55e72e129a9639a26981cbef595b0b58b38210d053ac",
+        "bytes": 2822408
+      },
+      {
+        "file": "projects.336x420.strokes.bin",
+        "sha256": "e9c18821ecc217bfa8e077e610f355c968f37aa81d065af826b39b049881daca",
+        "bytes": 2822408
+      },
+      {
+        "file": "welcome.336x420.strokes.bin",
+        "sha256": "475f73a9e1cf8f7ef56b402d8af2033269e1011caac4fe066c5bd1542982c9f5",
+        "bytes": 2822408
+      }
+    ]
+  },
+  "game": {
+    "file": "game.strokes.bin",
+    "count": 21270,
+    "cols": 420,
+    "rows": 236,
+    "plane": [
+      736,
+      414
+    ],
+    "image": "welcome.png",
+    "framing": "Width-preserving landscape crop; source y=5% of source height, crop height=source width*414/736",
+    "sha256": "fab43a3603acba3f95e06d5fc113ce2cf209b06b38a3f8eb8dd9fd4618b15cb8",
+    "exporter": "scripts/export-game-geometry.js",
+    "source": "https://eddy-naboulet.dev/_astro/notfoundGame.CUZeSLCN.js",
+    "observed": "2026-10-22"
+  }
+}

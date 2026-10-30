@@ -1,0 +1,29 @@
+{
+  "fonts": "Jacquard 12 / DotGothic16, exact reference binaries; official Google Fonts OFL notices",
+  "source": "https://eddy-naboulet.dev/",
+  "files": [
+    {
+      "file": "DotGothic-OFL.txt",
+      "sha256": "b6630c61ea078cacd7fabe37d14ffe557a0b45b06683374a9aa9e24262993e33"
+    },
+    {
+      "file": "dotgothic.woff2",
+      "sha256": "d29abf817463fdba7e9e87fc954cfa2b60ea6534e8a79c46e858a0dc5aa6a6f6"
+    },
+    {
+      "file": "Jacquard-OFL.txt",
+      "sha256": "dea0ea45c7835a51c20d24b9ef2ac03f5beec858995f5eda085540f1f7c713b7"
+    },
+    {
+      "file": "jacquard.woff2",
+      "sha256": "41e240a6612fc41979467e614efb14ae2647a7cfb988cee032fdfcc3cd63cac5"
+    }
+  ],
+  "activeTypography": {
+    "family": "VT323",
+    "selection": "User selected VT323 after local CRT comparisons",
+    "source": "https://fonts.googleapis.com/css2?family=VT323&display=swap",
+    "license": "VT323-OFL.txt",
+    "sha256": "954e44d25e0ccd643f4ef15e75d56d3d76590d3c2b1e42b71b13d5df740a51a6"
+  }
+}

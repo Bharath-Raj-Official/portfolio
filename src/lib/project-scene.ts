@@ -1,0 +1,9 @@
+export type Direction=[number,number,number];
+export function visualProjectOrder(count:number){if(count<1)return [];const copies=Math.min(5,Math.max(1,Math.round(44/count)));return Array.from({length:count*copies},(_,i)=>(i%count+Math.floor(i/count)*3)%count);}
+/** Fibonacci distribution followed by the measured 160 tangent-force relaxation steps. */
+export function relaxedDirections(count:number):Direction[]{
+ const points:Direction[]=Array.from({length:count},(_,i)=>{const y=1-2*i/(count-1||1),angle=Math.acos(y)-Math.PI/2,phi=i*Math.PI*(3-Math.sqrt(5));return[Math.cos(angle)*Math.cos(phi),Math.sin(angle),Math.cos(angle)*Math.sin(phi)];});
+ for(let iteration=0;iteration<160;iteration++){const forces:Direction[]=points.map(()=>[0,0,0]);for(let i=0;i<count;i++)for(let j=i+1;j<count;j++){const delta=points[i].map((v,k)=>v-points[j][k]),d2=Math.max(1e-6,delta.reduce((s,v)=>s+v*v,0)),gain=1/(d2*Math.sqrt(d2));for(let k=0;k<3;k++){forces[i][k]+=delta[k]*gain;forces[j][k]-=delta[k]*gain;}}const step=.004*(1-iteration/160)+.0008;points.forEach((p,i)=>{const f=forces[i],dot=f.reduce((s,v,k)=>s+v*p[k],0);for(let k=0;k<3;k++)f[k]=(f[k]-dot*p[k])*step;const length=Math.hypot(...f),gain=length>.05?.05/length:1;for(let k=0;k<3;k++)p[k]+=f[k]*gain;const norm=Math.hypot(...p);for(let k=0;k<3;k++)p[k]/=norm;});}return points;
+}
+export function sphereMetrics(width:number){return width<=500?{radius:275,depth:250,distance:1000,width:72}:width<=1400?{radius:820,depth:-310,distance:3920,width:250}:{radius:.58*width,depth:-.22*width,distance:2.8*width,width:.18*width};}
+export function conePosition(direction:Direction,metrics:ReturnType<typeof sphereMetrics>):Direction{const radius=metrics.radius/.4,theta=Math.acos(Math.max(-1,Math.min(1,direction[2])))*.4,phi=Math.atan2(direction[1],direction[0]);return[Math.sin(theta)*Math.cos(phi)*radius,Math.sin(theta)*Math.sin(phi)*radius,Math.cos(theta)*radius+metrics.depth+metrics.radius-radius];}

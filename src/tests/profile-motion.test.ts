@@ -1,0 +1,7 @@
+import {expect,it} from 'vitest';
+import {advanceProfilePose} from '../lib/profile-motion';
+it('initializes at the requested pose without a synthetic prior transition',()=>{expect(advanceProfilePose({pair:-1,mix:0},{pair:2,mix:.4},.016,false)).toEqual({pair:2,mix:.4,changed:true});});
+it('finishes the current adjacent forward pair before handing off',()=>{const next=advanceProfilePose({pair:0,mix:.4},{pair:1,mix:.3},.016,false);expect(next.pair).toBe(0);expect(next.mix).toBeCloseTo(.4416);expect(next.changed).toBe(false);expect(advanceProfilePose({pair:0,mix:1},{pair:1,mix:.3},0,false)).toEqual({pair:1,mix:0,changed:true});});
+it('reverses through the current pair before entering the preceding pair',()=>{expect(advanceProfilePose({pair:2,mix:.5},{pair:1,mix:.8},.016,false)).toEqual({pair:2,mix:.4584,changed:false});expect(advanceProfilePose({pair:2,mix:0},{pair:1,mix:.8},0,false)).toEqual({pair:1,mix:1,changed:true});});
+it('allows a nonadjacent jump and completes reduced motion immediately',()=>{expect(advanceProfilePose({pair:0,mix:.4},{pair:3,mix:.6},0,false)).toEqual({pair:3,mix:0,changed:true});expect(advanceProfilePose({pair:0,mix:.4},{pair:3,mix:.6},.016,true)).toEqual({pair:3,mix:1,changed:true});});
+it('uses measured exponential tracking, speed limit and final snap',()=>{const next=advanceProfilePose({pair:1,mix:.5},{pair:1,mix:.55},.016,false);expect(next.mix).toBeCloseTo(.5+.05*(1-Math.exp(-.016*14)));expect(advanceProfilePose({pair:1,mix:.999},{pair:1,mix:1},.016,false).mix).toBe(1);});

@@ -1,0 +1,10 @@
+import {describe,it,expect} from 'vitest';
+import {strokeSeeds,morphProgress,assignStrokeTargets,strokeTravel,freezeStrokes,cloudStrokes} from '../lib/morph';
+describe('interruptible stroke transitions',()=>{
+ it('uses a sequential deterministic generator and clamped stagger',()=>{const s=strokeSeeds(3);expect(s[0]).toBeCloseTo(1052188298/4294967295);expect(s[1]).not.toBe(s[0]);expect(morphProgress(0,s[1])).toBe(0);expect(morphProgress(1,s[2])).toBe(1);});
+ it('assigns live targets to live sources first without reusing indices',()=>{const order=assignStrokeTargets(new Float32Array([1,0,2,0]),new Float32Array([0,2,0,1]),1);expect(new Set(order).size).toBe(4);expect([1,3]).toContain(order[0]);expect([1,3]).toContain(order[2]);expect([0,2]).toContain(order[1]);});
+ it('matches ranked live marks by spatial bands without losing empty cells',()=>{const lengths=new Float32Array([1,1,0,1]),a=[.8,.1,.5,.4],b=[.2,.9,.5,.6],order=assignStrokeTargets(lengths,lengths,1,{from:i=>a[i],to:i=>b[i]});expect(order[1]).toBe(0);expect(order[3]).toBe(3);expect(order[0]).toBe(1);expect(order[2]).toBe(2);});
+ it('freezes an interrupted path at its displayed position',()=>{const from=new Float32Array([0,0,0,1]),to=new Float32Array([10,20,30,.5]),lens=new Float32Array([2,4]),seeds=new Float32Array([.5]),travel=new Float32Array([3,4,5]);freezeStrokes(from,to,lens,seeds,travel,.5);expect([...from]).toEqual([8,14,20,.75]);expect(lens[0]).toBeCloseTo(3);});
+ it('has a perpendicular screen-space bend and bounded depth',()=>{const t=strokeTravel(0,0,100,0,.3,2);expect(t[0]).toBeCloseTo(0);expect(Math.abs(t[1])).toBeGreaterThanOrEqual(18);expect(Math.abs(t[2])).toBeGreaterThanOrEqual(46);expect(Math.abs(t[2])).toBeLessThanOrEqual(90);});
+ it('creates a deterministic empty cloud for dissolve and condense',()=>{const c=cloudStrokes(12);expect(c.length.every(x=>x===0)).toBe(true);expect(c.data.filter((_,i)=>i%4===3).every(x=>x===0)).toBe(true);expect(cloudStrokes(12).data).toEqual(c.data);for(let i=0;i<12;i++)expect(Math.hypot(c.data[i*4],c.data[i*4+1]/.8,c.data[i*4+2])).toBeGreaterThanOrEqual(234.99);});
+});
